@@ -1,0 +1,30 @@
+PART 1:
+Task 1:
+    1. The getpass library allows you to hide passwords as they are being inputted.
+    2. When you run the SQL method ".execute" you run the command "INSERT INTO" to add data
+    to the database.
+    3. users.db
+Task 3:
+    When we ask a user for username or password for logging in, we are giving them an informative error message, but this
+    can also be dangerous for attackers who are trying to guess passwords through brute-force. Some authentication microservices
+    use error messages like "The username does not exist or the password is incorrect" to obscure the error, while still giving
+    the user enough information to know that something went wrong. There are also no guardrails to ensure the user's password is
+    a strong password. We could implement some requirements for password length before allowing a user to use the password for their
+    account. Further, we should not allow special characters like " or a space in username and passwords to prevent attackers from
+    exiting input and injecting code. Additionally, we are not hashing passwords for storage which is dangerous. To fix this, I researched
+    the hashlib library (https://docs.python.org/3/library/hashlib.html) that was included in the starter code and chose a strong algorithm with a salt value (I did not have the random
+    library, so I could not do a random value) to make sure that the password is secure.
+PART 2:
+Task 1:
+    1. For username, I inputted * OR 1=1.
+    2. I inputted " or ""=" in both username and password.
+    3. I inputted kjworld313; DROP TABLE Suppliers into username.
+    4. In username, I inputted katelynn'; DROP TABLE users; --
+    5. In password, I inputted cursor.execute("SELECT username, password FROM users WHERE username=?", (username,)).fetchone()
+    I think that the way I wrote the verify_login function nothing would allow
+    them to actually log in without knowing the password.
+Task 2:
+    The execute command prevents injections like dropping the table, inserting, updating, etc. because it only
+    executes one single SQL statement. If the programmer connected the cursor before asking for credentials,
+    the attacker could potentially try to feed in a cursor.execute().fetchone() command which selects the password from the database
+    that corresponds to the username. If the password were not hashed and validated, this could potentially work since the command returns a string.
