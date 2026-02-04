@@ -1,0 +1,24 @@
+str_to_bin:
+    1. string to binary
+    2. the purpose of the function is to convert a string to a list of 8-bit bytes (each byte's bits are in a list)
+    3. on line 24, the function converts the current character in the string to its ASCII
+    value using ord() and uses the format() function ("08b" is used as second argument to specify
+    8 bits for representation) to convert the character from ASCII to an 8-bit byte. Each character in
+    the string is stored as an 8-bit byte in a list. 
+bin_to_str:
+    1. binary to string
+    2. the purpose of the function is to convert a list of 8-bit bytes (binary representation of a character
+    corresponding to its ASCII value) to a string.
+    3. in the for loop on line 32, the function collects bytes from the list and converts each bit to a string,
+    then concatenates them to a string "byte." On line 37, int(byte,2) means the "byte" string is to be interpreted
+    as base 2 or binary (used vscode overview from hovering over function). Then, the byte is converted to its corresponding
+    character (as the string is interpreted as a byte -> if the string was "00000101" the value from int() call would be 5) from
+    ASCII. Eventually, as it keeps concatenating characters to a string, it returns the whole string converted from binary. 
+gen_key:
+    1. generate key
+    2. the purpose of the function is to generate a key, represented as a list of 64 bits, from the value in the argument.
+    3. on line 4, the function calls format on the remainder of the argument value (dividend) and 2**64 (divisor) with "064b" to specify
+    that the remainder should be represented in 64 bits. The divisor represents the total possible number of bits to use (2 choices -> 0 or 1
+    and 64 total bits available), so modding the argument value by the divisor gives a number to be formatted in 64 bits. On line 5, the function
+    iterates through the argument 'val' and casts each bit as an integer and places it in a list, so the list to be returned contains each bit from
+    the 64 bits. This is our key. 

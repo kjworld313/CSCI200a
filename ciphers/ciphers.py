@@ -8,6 +8,10 @@ parser.add_argument("--keyword", type=str, help="What keyword the keyword cipher
 parser.add_argument("--shift", type=int, help="What shift the caesar cipher should use")
 parser.add_argument("--text", type=str, help="Text to cipher or decipher")
 
+
+### Source code above supplied by Professor Leeson
+#################################################################
+
 def cipher(mode:str, alphabet:dict, text:str) -> str:
     '''The cipher function takes three arguments: mode (string), alphabet (dictionary),
     and text (string). The function determines the operation depending on the mode argument and 
@@ -131,6 +135,9 @@ def keyword_alphabet(keyword:str) -> dict:
     keyword_alphabet = uppercase_alphabet
 
     return keyword_alphabet
+
+#################################################################
+### Source code below supplied by Professor Leeson
 
 def main():
     args = parser.parse_args()

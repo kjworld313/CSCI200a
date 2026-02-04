@@ -5,6 +5,10 @@ parser.add_argument("--file", type=str, help="What file to XOR")
 parser.add_argument("--mod", type=int, help="What number to use as the modulo base")
 parser.add_argument("--num", type=int, help="What number to calculate using modulo")
 
+
+### Source code above supplied by Professor Leeson
+#################################################################
+
 def XOR(file_loc:str):
     '''The XOR function takes a string argument, file_loc, which represents
     the location of a file containing two binary numbers. The function outputs None,
@@ -60,6 +64,9 @@ def MOD(dividend:int, divisor:int):
     else:
         # recursively call MOD, decrementing dividend by divisor, until dividend is less than divisor
         MOD(dividend-divisor, divisor)
+
+#################################################################
+### Source code below supplied by Professor Leeson
 
 def main():
     args = parser.parse_args()
